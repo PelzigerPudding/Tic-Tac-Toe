@@ -15,10 +15,18 @@ public class ButtonFeld extends JButton {
         addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ispressed = 'c';
-                setBackground(Color.red);
-                setEnabled(false);
+                if (GridFeld.getSpieler()[GridFeld.getSpielerindex()%2].getFarbe() == 'a') {
+                    setBackground(Color.red);
+                    setEnabled(false);
+                    ispressed = 'a';
+                } else {
+                    setBackground(Color.green);
+                    setEnabled(false);
+                    ispressed = 'b';
+                }
+
                 GridFeld.ueberpruefen();
+                GridFeld.setSpielerindex();
             }
         });
     }
